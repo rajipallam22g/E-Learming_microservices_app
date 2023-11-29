@@ -112,7 +112,7 @@ spec:
                 - ALL
             privileged: false
             readOnlyRootFilesystem: true
-          image: snayeem753/checkoutservice-1.0
+          image: snayeem753/checkoutservice:1.0
           ports:
           - containerPort: 5050
           readinessProbe:
@@ -186,7 +186,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: snayeem753/recommendationservice-1.0
+        image: snayeem753/recommendationservice:1.0
         ports:
         - containerPort: 8080
         readinessProbe:
@@ -255,7 +255,7 @@ spec:
                 - ALL
             privileged: false
             readOnlyRootFilesystem: true
-          image: snayeem753/frontend-1.0
+          image: snayeem753/frontend:1.0
           ports:
           - containerPort: 8080
           readinessProbe:
@@ -364,7 +364,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: snayeem753/paymentservice-1.0
+        image: snayeem753/paymentservice:1.0
         ports:
         - containerPort: 50051
         env:
@@ -428,7 +428,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: snayeem753/productcatalogservice-1.0
+        image: snayeem753/productcatalogservice:1.0
         ports:
         - containerPort: 3550
         env:
@@ -492,7 +492,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: snayeem753/cartservices-1.0
+        image: snayeem753/cartservices:1.0
         ports:
         - containerPort: 7070
         env:
@@ -584,7 +584,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: snayeem753/loadgenerator-1.0
+        image: snayeem753/loadgenerator:1.0
         env:
         - name: FRONTEND_ADDR
           value: "frontend:80"
@@ -627,7 +627,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: snayeem753/currencyservice-1.0
+        image: snayeem753/currencyservice:1.0
         ports:
         - name: grpc
           containerPort: 7000
@@ -691,7 +691,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: snayeem753/shippingservice-1.0
+        image: snayeem753/shippingservice:1.0
         ports:
         - containerPort: 50051
         env:
@@ -821,7 +821,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: snayeem753/adservice-1.0
+        image: snayeem753/adservice:1.0
         ports:
         - containerPort: 9555
         env:
