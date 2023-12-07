@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+    environment {
+        AWS_ACCESS_KEY_ID = credentials('aws_access_key')
+        AWS_SECRET_ACCESS_KEY = credentials('aws_secret_key')
+        AWS_DEFAULT_REGION = "ap-south-1"
+    }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                git branch: 'feature/SCRUM-64', url: 'https://github.com/Shaiknayeem753/E-Learming_microservices_app.git'
+            }
+        }
+     
+        stage('deletion manifest files'){
+           steps {
+               dir ('release'){
+               sh 'kubectl delete -f kubernetes-manifests.yaml '
+               }
+            }
+        } 
+        
+    }
+}
+        

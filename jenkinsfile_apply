@@ -1,0 +1,56 @@
+pipeline {
+    agent any
+    environment {
+        AWS_ACCESS_KEY_ID = credentials('aws_access_key')
+        AWS_SECRET_ACCESS_KEY = credentials('aws_secret_key')
+        AWS_DEFAULT_REGION = "ap-south-1"
+    }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                git branch: 'feature/SCRUM-64', url: 'https://github.com/Shaiknayeem753/E-Learming_microservices_app.git'
+            }
+        }
+        stage('describe the cluster'){
+           steps {
+               sh 'aws eks --region ap-south-1 describe-cluster --name my_eks_cluster --query cluster.status'
+           }
+        } 
+        stage('copy kubeconfig'){
+           steps {
+               sh 'mv $HOME/.kube/config  $HOME/.kube/config.old'
+           }
+        } 
+        stage('update kubeconfig'){
+           steps {
+               sh 'aws eks --region ap-south-1 update-kubeconfig --name my_eks_cluster'
+           }
+        } 
+        stage('get the nodes'){
+           steps {
+               sh 'kubectl get nodes'
+           }
+        } 
+        stage('apply manifest files'){
+           steps {
+               dir ('release'){
+               sh 'kubectl apply -f kubernetes-manifests.yaml '
+               }
+            }
+        } 
+        stage('get the pods'){
+           steps {
+               sh 'kubectl get pods'
+           }
+        } 
+        /*
+        stage('get the service'){
+           steps {
+               sh 'kubectl get svc'
+           }
+        } 
+        */
+    }
+}
+        
