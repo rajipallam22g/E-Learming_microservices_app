@@ -492,7 +492,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: snayeem753/cartservices-2.0:28
+        image: snayeem753/cartservice-2.0:28
         ports:
         - containerPort: 7070
         env:
