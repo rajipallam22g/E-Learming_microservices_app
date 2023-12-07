@@ -44,13 +44,13 @@ pipeline {
                sh 'kubectl get pods'
            }
         } 
-        /*
+        
         stage('get the service'){
            steps {
                sh 'kubectl get svc'
            }
         } 
-        */
+        
     }
 }
         
